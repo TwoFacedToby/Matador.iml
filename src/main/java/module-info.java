@@ -5,6 +5,8 @@ module com.example.demo {
 
     opens com.example.matador to javafx.fxml;
     exports com.example.matador;
-    exports com.example.matador.controllers;
-    opens com.example.matador.controllers to javafx.fxml;
+    exports com.example.matador.gui;
+    opens com.example.matador.gui to javafx.fxml;
+    exports com.example.matador.gui.fields;
+    opens com.example.matador.gui.fields to javafx.fxml;
 }

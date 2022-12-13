@@ -1,4 +1,4 @@
-package com.example.matador.controllers;
+package com.example.matador.gui;
 
 import com.example.matador.Main;
 import javafx.event.ActionEvent;
@@ -10,15 +10,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+
 import java.io.IOException;
 import java.util.Objects;
 
 public class MenuScreen {
+    private GUI gui;
+    public MenuScreen(GUI gui){
+        this.gui = gui;
+    }
+
     private String[] playerNames;
     private int playerAmount;
     @FXML

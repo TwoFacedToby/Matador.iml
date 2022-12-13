@@ -1,19 +1,30 @@
-package com.example.matador;
+package com.example.matador.gui;
 
-import com.example.matador.controllers.MenuScreen;
-import javafx.event.ActionEvent;
+import com.example.matador.Main;
+import com.example.matador.gui.MenuScreen;
+import com.example.matador.gui.fields.Fields;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class GUI {
+    private static MenuScreen menuScreen;
+    private static Board board;
+    private static Fields fields;
+    private Main main;
     private MenuScreen controller;
     private boolean childrenCollected = false;
     Stage stage;
+
+    public GUI(Main main) {
+        this.main = main;
+        menuScreen = new MenuScreen(this);
+        board = new Board(this);
+        fields = new Fields(this);
+    }
+
     public void startGUI(Stage s) throws IOException {
         stage = s;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MenuScreen.fxml"));
@@ -23,14 +34,7 @@ public class GUI {
         stage.setScene(scene);
         stage.show();
     }
-
-    /*Have this in all controllers
-    private void switchScene(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Main.class.getResource("Board.fxml"));
-        Scene scene = new Scene(root, 1080, 720);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene);
-        window.show();
+    public void Test(){
+        System.out.println("Hello");
     }
-    }*/
 }
